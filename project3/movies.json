@@ -1,0 +1,28 @@
+
+[
+    {
+        "id":1,
+"title": "movie title" ,
+"director": "director",
+"relase_year": "2022" ,
+"genre": "fiction"
+}
+
+,
+{
+    "id":2,
+    "title": "movie title" ,
+    "director": "director",
+    "relase_year": "2022" ,
+    "genre": "fiction"
+    }
+,
+{
+    "id":3,
+    "title": "movie title" ,
+    "director": "director",
+    "relase_year": "2022" ,
+    "genre": "fiction"
+    }
+    
+]
