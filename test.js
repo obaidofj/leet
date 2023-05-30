@@ -13,12 +13,12 @@ function mapArray(arr, fn) {
   }
 
   
-  const arr = [1, 2, 3, 4, 5];
+  const functions = [1, 2, 3, 4, 5];
 
 function constant() {
   return 42;
 }
 
-const transformed = mapArray(arr, constant);
+const transformed = mapArray(functions, constant);
 console.log(transformed); // Output: [42, 42, 42, 42, 42]
 

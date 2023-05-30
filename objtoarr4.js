@@ -19,7 +19,7 @@ var jsonToMatrix = function(arr) {
       let row = [];
       columns.forEach(col => {
         let value = getValFromObj(obj, col.split('.'));
-        row.push((value !== undefined && !Array.isArray(value))  ? value : '');
+        row.push(value !== undefined ? value : '');
       });
       matrix.push(row);
     });
@@ -44,20 +44,20 @@ var jsonToMatrix = function(arr) {
     }
   }
   
-  function getValFromObj(objOrArr, keys) {
+  function getValFromObj(obj, keys) {
     for (let key of keys) {
-      if (typeof objOrArr !== 'object' || objOrArr === null || !objOrArr.hasOwnProperty(key)) {
+      if (typeof obj !== 'object' || obj === null || !obj.hasOwnProperty(key)) {
         return undefined;
       }
-      else if (Array.isArray(objOrArr) && objOrArr.length === 0 ) {
+      else if (Array.isArray(obj) && obj.length === 0 ) {
         return undefined;
       }
-      else if (Array.isArray(objOrArr) && objOrArr.length !== 0 && objOrArr[0]===key) {
+      else if (Array.isArray(obj) && obj.length !== 0 && obj[0]===key) {
         return key;
       }
-      objOrArr = objOrArr[key];
+      obj = obj[key];
     }
-    return objOrArr;
+    return obj;
   }
   
 
@@ -68,8 +68,6 @@ let arr = [
 ]
 
 let arr22=[[[[1]]],[[2]],[3]];
-
-let arr23=[[[[1],4]],[[2]],[3]];
 
 let outp=[["0","0.0","0.0.0"],["","",1],["",2,""],[3,"",""]];
 
