@@ -19,35 +19,46 @@
 
 //movie func modul
 
-class movies{
+export class movies{
 
-    displayCatalog()
+     displayCatalog()
     {
-
+console.log("func");
     }
 
     addNewMovie()
     {
-
+        console.log("func");
     }
 
     updateMovie()
     {
-
+        console.log("func");
     }
 
     deleteMovie()
     {
-
+        console.log("func");
     }
 
     searchForMovie(searchType,searchVal)
     {
-
+        console.log("func");
     }
 
     fetchData()
     {
-
+        const options = {
+            method: 'GET',
+            headers: {
+              accept: 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOWQyMWI0ZjcwZDkzNWJkMjVhMGNkNTIwYmQxZGY1MSIsInN1YiI6IjY0NzYyNDg3MWJmMjY2MDQzZWNkZjc1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IOgGvBdUcRVaoCtikEGGgk84H8AWV_O4Go8p78cwj48'
+            }
+          };
+          
+          fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
     }
 }

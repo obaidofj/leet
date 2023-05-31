@@ -1,4 +1,5 @@
 
+
 // Display Movie Catalog: Read movie data from a JSON file and display a list of movies in the catalog.
 
 // Add New Movie: Allow users to add new movies to the catalog by providing details such as title, director, 
@@ -15,7 +16,19 @@
 // Fetch Movie Data: Utilize the Fetch API to make HTTP requests to a movie database API (such as OMDB API) to fetch additional 
 //movies from the API and store it in the JSON file.
 
+//Here is your key: 78357e09
+//Please append it to all of your API requests,
+//OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=78357e09
+
+//https://www.themoviedb.org/settings/api
+//e9d21b4f70d935bd25a0cd520bd1df51
+//API Read Access Token
+//eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlOWQyMWI0ZjcwZDkzNWJkMjVhMGNkNTIwYmQxZGY1MSIsInN1YiI6IjY0NzYyNDg3MWJmMjY2MDQzZWNkZjc1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IOgGvBdUcRVaoCtikEGGgk84H8AWV_O4Go8p78cwj48
+
 import prompt from 'prompt-sync';
+import {movies} from'./moveisManagments.js';
+
+let moveiClass =new movies();
 
 const input = prompt();
 
@@ -48,25 +61,25 @@ function main()
     const choice = input();
     switch (choice) {
         case "1":
-          displayCatalog();
+          moveiClass.displayCatalog();
           break;
         case "2":
-          addNewMovie();
+          moveiClass.addNewMovie();
           break;
         case "3":
-          updateMoveDeials();
+          moveiClass.updateMoveDeials();
           break;
         case "4":
-          deleteMovie();
+          moveiClass.deleteMovie();
           break;
         case "5":
-          searchAnd();
+          moveiClass.searchAnd();
           break;
         case "7":
-          sortTaskByID();
+          moveiClass.sortTaskByID();
           break;
         case "8":
-          clearAllTasks();
+          moveiClass.clearAllTasks();
           break;
         case "0":
           return;
