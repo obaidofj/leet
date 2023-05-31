@@ -53,13 +53,15 @@ console.log(`
 }
 
 
-function main()
+async function main()
 {
+  
+  printProgramMenu();
     while(true)
     {
-    printProgramMenu();
+    
     const choice = input();
-    switch (choice) {
+    switch (choice) { 
         case "1":
           moveiClass.displayCatalog();
           break;
@@ -73,15 +75,15 @@ function main()
           moveiClass.deleteMovie();
           break;
         case "5":
-          moveiClass.searchAnd();
+          moveiClass.searchMovies();
+          break;
+        case "6":
+          moveiClass.fetchFromServer();
           break;
         case "7":
-          moveiClass.sortTaskByID();
+          moveiClass.loadPreviouseData();
           break;
         case "8":
-          moveiClass.clearAllTasks();
-          break;
-        case "0":
           return;
   
         default:

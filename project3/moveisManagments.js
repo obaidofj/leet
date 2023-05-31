@@ -18,12 +18,19 @@
 //modules
 
 //movie func modul
+import {readJsonFile, writeToJSON , jsonData } from'./handelFiles.js';
 
 export class movies{
 
      displayCatalog()
-    {
-console.log("func");
+    { 
+        (async ()=>{
+        console.log("dis1");
+
+        let data=await readJsonFile('movies.json');
+        console.log("dis2", data);
+        })();
+        // console.log(JSON.stringify(jsonData, null, 2));
     }
 
     addNewMovie()
@@ -31,7 +38,8 @@ console.log("func");
         console.log("func");
     }
 
-    updateMovie()
+
+    updateMoveDeials()
     {
         console.log("func");
     }
@@ -41,12 +49,12 @@ console.log("func");
         console.log("func");
     }
 
-    searchForMovie(searchType,searchVal)
+    searchMovies(searchType,searchVal)
     {
         console.log("func");
     }
 
-    fetchData()
+    fetchFromServer()
     {
         const options = {
             method: 'GET',

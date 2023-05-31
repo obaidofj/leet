@@ -1,36 +1,21 @@
 // const fs = require('fs');
 import fs from 'fs';
-let jsonData;
+export let jsonData;
 
-const readAFile = () => {
-  fs.readFile("data.json", "utf-8", (err, data) => {
-    if (err) {
-      console.log("Something went wrong while reading the file!");
-      console.log(err.message);
-    } else {
-      jsonData = JSON.parse(data);  // Convert string to json
-      jsonData[0].name = "Mohammad";   // Edit the json
-      jsonData[0].age = 55;   // Edit the json
-      console.log(jsonData);   // print the json
-
-      writeToJSON();   // we call this here because the readFile function is async
-    }
-  });
+export const readJsonFile = async (filePath) => {
+  try {
+    const fileData = await fs.promises.readFile(filePath, 'utf8');
+    const jsonData = JSON.parse(fileData);
+    return jsonData;
+  } catch (error) {
+    console.error('Error reading JSON file:', error);
+    throw error;
+  }
 }
 
-const writeToFile = () => {
-  const myData = "Hello from the code!";
-  fs.writeFile("data2.txt", myData, 'utf-8', (err) => {
-    if (err) {
-      console.log("Something went wrong while writing to the file!");
-      console.log(err.message);
-    } else {
-      console.log("File has been written.");
-    }
-  });
-}
 
-const writeToJSON = () => {
+
+export const writeToJSON = () => {
   // const myData = "Hello from the code!";
   fs.writeFile("data.json", JSON.stringify(jsonData), 'utf-8', (err) => {
     if (err) {
@@ -42,7 +27,7 @@ const writeToJSON = () => {
   });
 }
 
-const appendToFile = () => {
+export const appendToJsonFile = () => {
   const newData = "\nHello from the code!";
   fs.appendFile("data.txt", newData, "utf-8", (err) => {
     if (err) {
@@ -52,10 +37,12 @@ const appendToFile = () => {
       console.log("File has been updated.");
     }
   })
+  
 }
 
+(async ()=>{
+let data= await readJsonFile('movies.json');
+console.log( data);
+})();
 
 
-readAFile();
-writeToFile();
-appendToFile();
