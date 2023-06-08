@@ -8,7 +8,7 @@ var createCounter = function(init) {
         
     }
 
-
+console.log( '😂😊');
 
  const counter = createCounter(5) ;
 
@@ -16,3 +16,12 @@ var createCounter = function(init) {
  console.log(counter.reset());
  console.log(counter.decrement()); 
  
+let data="";
+
+(async()=>{
+ let res= await fetch("https://apis-customer.logestechs.com/api/guests/10/packages/tracking?barcode=130518024004")
+
+ const data = await res.json();
+    
+    console.log(data);
+})();
